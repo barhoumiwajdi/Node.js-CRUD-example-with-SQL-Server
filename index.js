@@ -3,6 +3,21 @@ const cors = require("cors");
 
 const app = express();
 
+
+
+// initialize Sequelize for working with SQL Server 
+const db = require("./Models/");
+db.sequelize.sync();
+
+
+/*
+
+//In development, you may need to drop existing tables and re-sync database.
+db.sequelize.sync({ force: true }).then(() => {
+    console.log("Drop and re-sync db.");
+  });
+*/
+
 var corsOptions = {
     origin: "http://localhost:8081"
 };
